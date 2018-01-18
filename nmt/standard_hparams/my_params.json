@@ -22,7 +22,6 @@
   "share_vocab": true,
   "subword_option": "bpe",
   "sos": "<s>",
-  "source_reverse": false,
   "src_max_len": 30,
   "src_max_len_infer": null,
   "steps_per_external_eval": null,
