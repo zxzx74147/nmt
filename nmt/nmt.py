@@ -422,6 +422,7 @@ def extend_hparams(hparams):
   utils.print_out("  dev_prefix=%s" % hparams.dev_prefix)
   utils.print_out("  test_prefix=%s" % hparams.test_prefix)
   utils.print_out("  out_dir=%s" % hparams.out_dir)
+  utils.print_out("  share_vocab=%s" % hparams.share_vocab)
 
   ## Vocab
   # Get vocab file names first
@@ -441,6 +442,7 @@ def extend_hparams(hparams):
       unk=vocab_utils.UNK)
 
   # Target vocab
+  utils.print_out("  share_vocab=%s" % hparams.share_vocab)
   if hparams.share_vocab:
     utils.print_out("  using source vocab for target")
     tgt_vocab_file = src_vocab_file

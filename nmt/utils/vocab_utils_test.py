@@ -53,5 +53,6 @@ class VocabUtilsTest(tf.test.TestCase):
         [vocab_utils.UNK, vocab_utils.SOS, vocab_utils.EOS] + vocab, new_vocab)
 
 
+
 if __name__ == "__main__":
   tf.test.main()
