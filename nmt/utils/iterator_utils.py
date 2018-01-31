@@ -111,14 +111,10 @@ def get_iterator(src_dataset,
       lambda src, tgt: (
           tf.string_split([src]).values, tf.string_split([tgt]).values),
       num_parallel_calls=num_parallel_calls).prefetch(output_buffer_size)
-  # src_tgt_dataset = src_tgt_dataset.map(
-  #     lambda src, tgt: (
-  #         tf.string_split([src]).values[1:], tf.string_split([tgt]).values[1:]),
-  #     num_parallel_calls=num_parallel_calls).prefetch(output_buffer_size)
 
   # Filter zero length input sequences.
   src_tgt_dataset = src_tgt_dataset.filter(
-      lambda src, tgt: tf.logical_and(tf.size(src) > 1, tf.size(tgt) > 1))
+      lambda src, tgt: tf.logical_and(tf.size(src) > 0, tf.size(tgt) > 0))
 
   if src_max_len:
     src_tgt_dataset = src_tgt_dataset.map(
