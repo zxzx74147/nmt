@@ -11,7 +11,7 @@
   "init_weight": 0.1,
   "learning_rate": 1.0,
   "max_gradient_norm": 5.0,
-  "metrics": ["rouge"],
+  "metrics": ["bleu"],
   "num_buckets": 5,
   "num_layers": 8,
   "num_train_steps": 340000,
