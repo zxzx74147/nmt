@@ -107,14 +107,14 @@ def get_iterator(src_dataset,
   src_tgt_dataset = src_tgt_dataset.shuffle(
       output_buffer_size, random_seed, reshuffle_each_iteration)
 
-  # src_tgt_dataset = src_tgt_dataset.map(
-  #     lambda src, tgt: (
-  #         tf.string_split([src]).values, tf.string_split([tgt]).values),
-  #     num_parallel_calls=num_parallel_calls).prefetch(output_buffer_size)
   src_tgt_dataset = src_tgt_dataset.map(
       lambda src, tgt: (
-          tf.string_split([src]).values[1:], tf.string_split([tgt]).values[1:]),
+          tf.string_split([src]).values, tf.string_split([tgt]).values),
       num_parallel_calls=num_parallel_calls).prefetch(output_buffer_size)
+  # src_tgt_dataset = src_tgt_dataset.map(
+  #     lambda src, tgt: (
+  #         tf.string_split([src]).values[1:], tf.string_split([tgt]).values[1:]),
+  #     num_parallel_calls=num_parallel_calls).prefetch(output_buffer_size)
 
   # Filter zero length input sequences.
   src_tgt_dataset = src_tgt_dataset.filter(
