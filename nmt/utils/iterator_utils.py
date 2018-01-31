@@ -118,7 +118,7 @@ def get_iterator(src_dataset,
 
   # Filter zero length input sequences.
   src_tgt_dataset = src_tgt_dataset.filter(
-      lambda src, tgt: tf.logical_and(tf.size(src) > 0, tf.size(tgt) > 0))
+      lambda src, tgt: tf.logical_and(tf.size(src) > 1, tf.size(tgt) > 1))
 
   if src_max_len:
     src_tgt_dataset = src_tgt_dataset.map(
