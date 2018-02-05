@@ -119,7 +119,6 @@ def daemon_inference(sent):
     global daemon_lru
     hparams = daemon_hparams
     infer_data = [sent]
-    print(loaded_infer_model)
     with infer_model.graph.as_default():
         daemon_sess.run(infer_model.iterator.initializer,
                         feed_dict={
@@ -135,6 +134,7 @@ def daemon_inference(sent):
           tgt_eos=hparams.eos,
           num_translations_per_input=hparams.num_translations_per_input)
 
+        print("|".join(translations))
         for translation in translations:
             if translation in daemon_lru:
                 if daemon_lru[translation]<4:
@@ -151,7 +151,7 @@ def daemon_inference(sent):
                     print("remove key" + key_to_evict)
                 daemon_lru[translation] = 1
                 return translation
-        print("fail:" + "|".join(translations))
+
 
     # with infer_model.graph.as_default():
 
