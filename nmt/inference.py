@@ -136,9 +136,10 @@ def daemon_inference(sent):
           num_translations_per_input=hparams.num_translations_per_input)
 
         logger.info("|".join(translations))
+        print("|".join(translations))
         for translation in translations:
             if translation in daemon_lru:
-                if daemon_lru[translation]<4:
+                if daemon_lru[translation]<2:
                     value = daemon_lru.pop(translation)
                     daemon_lru[translation] =value+1
                     return translation
