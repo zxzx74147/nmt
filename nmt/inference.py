@@ -134,22 +134,23 @@ def daemon_inference(sent):
           beam_width=hparams.beam_width,
           tgt_eos=hparams.eos,
           num_translations_per_input=hparams.num_translations_per_input)
-        if(len(daemon_lru)>100):
-            keys = list(daemon_lru.keys())
-            key_to_evict = keys[0]
-            daemon_lru.pop(key_to_evict)
-            print("remove key"+key_to_evict)
+        # if(len(daemon_lru)>50):
+        #     keys = list(daemon_lru.keys())
+        #     key_to_evict = keys[0]
+        #     daemon_lru.pop(key_to_evict)
+        #     print("remove key"+key_to_evict)
         for translation in translations:
-            if translation in daemon_lru:
-                if daemon_lru[translation]<4:
-                    value = daemon_lru.pop(translation)
-                    daemon_lru[translation] =value+1
-                    return translation
-                else:
-                    continue
-            else:
-                daemon_lru[translation] = 1
-                return translation
+            # if translation in daemon_lru:
+            #     if daemon_lru[translation]<4:
+            #         value = daemon_lru.pop(translation)
+            #         daemon_lru[translation] =value+1
+            #         return translation
+            #     else:
+            #         continue
+            # else:
+            #     daemon_lru[translation] = 1
+            return translation
+        # print("fail:" + "|".join(translations))
 
     # with infer_model.graph.as_default():
 
