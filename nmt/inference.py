@@ -138,6 +138,7 @@ def daemon_inference(sent):
             keys = list(daemon_lru.keys())
             key_to_evict = keys[0]
             daemon_lru.pop(key_to_evict)
+            print("remove key"+key_to_evict)
         for translation in translations:
             if translation in daemon_lru:
                 if daemon_lru[translation]<4:
