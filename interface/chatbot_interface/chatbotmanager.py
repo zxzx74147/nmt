@@ -45,8 +45,10 @@ class ChatbotManager(AppConfig):
         if not inference.daemon_sess:
             logger.info('Initializing bot...')
             path=''
-            params = ['--hparams_path','nmt/standard_hparams/my_params_v2.json','--out_dir','/Volumes/DATA_FAST/nmt/nmt_output_v2_pure']
-            params+=(['--src','qu' ,'--tgt','an','--num_translations_per_input','3' ])
+            params = ['--hparams_path', 'nmt/standard_hparams/my_params_v2.json', '--out_dir',
+                      '/home/zx/workspace/nmt/nmt_output_v2_pure']
+            # params+=['--ckpt','/home/zx/workspace/nmt/nmt_output_v2_pure/best_bleu/translate.ckpt-182000']
+            params += (['--src', 'qu', '--tgt', 'an', '--num_translations_per_input', '3'])
 
             nmt.run_interface(params)
             # ChatbotManager.bot = chatbotstream.ChatbotStream()
