@@ -1,0 +1,190 @@
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 64, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 113, in daemon_inference
+    loaded_infer_model.src_placeholder: infer_data,
+AttributeError: 'GNMTModel' object has no attribute 'src_placeholder'
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 64, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 118, in daemon_inference
+    loaded_infer_model.src_placeholder: infer_data,
+AttributeError: 'GNMTModel' object has no attribute 'src_placeholder'
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 66, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 136, in daemon_inference
+    loaded_infer_model.src_placeholder: infer_data,
+AttributeError: 'GNMTModel' object has no attribute 'src_placeholder'
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 66, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 136, in daemon_inference
+    loaded_infer_model.src_placeholder: ['我'],
+AttributeError: 'GNMTModel' object has no attribute 'src_placeholder'
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 66, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 148, in daemon_inference
+    loaded_infer_model.src_placeholder: infer_data,
+AttributeError: 'GNMTModel' object has no attribute 'src_placeholder'
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 66, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 148, in daemon_inference
+    loaded_infer_model.src_placeholder: infer_data,
+AttributeError: 'GNMTModel' object has no attribute 'src_placeholder'
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 66, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 148, in daemon_inference
+    loaded_infer_model.src_placeholder: infer_data,
+AttributeError: 'GNMTModel' object has no attribute 'src_placeholder'
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 66, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 150, in daemon_inference
+    loaded_infer_model.src_placeholder: infer_data,
+AttributeError: 'GNMTModel' object has no attribute 'src_placeholder'
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 66, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 168, in daemon_inference
+    infer_model.batch_size_placeholder: hparams.infer_batch_size
+AttributeError: 'NoneType' object has no attribute 'infer_batch_size'
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 66, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 172, in daemon_inference
+    assert nmt_outputs.shape[0] == 1
+AssertionError
+Not Found: /favicon.ico
+Internal Server Error: /api_chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/site-packages/channels/handler.py", line 243, in process_exception_by_middleware
+    return super(AsgiHandler, self).process_exception_by_middleware(exception, request)
+  File "/usr/local/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/httpserv.py", line 12, in chat
+    answer = ChatbotManager.callBot(question)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/interface/chatbot_interface/chatbotmanager.py", line 67, in callBot
+    return inference.daemon_inference(sentence)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/inference.py", line 133, in daemon_inference
+    num_translations_per_input=hparams.num_translations_per_input)
+  File "/Users/zhengxin/Documents/workspace/tensorflow/nmt/nmt/utils/nmt_utils.py", line 131, in decode_and_evaluate_daemon
+    translations.append(translation.decode("utf-8"))
+AttributeError: 'str' object has no attribute 'decode'

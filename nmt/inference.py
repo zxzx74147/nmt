@@ -27,10 +27,16 @@ from . import model as nmt_model
 from . import model_helper
 from .utils import misc_utils as utils
 from .utils import nmt_utils
+import collections
 
 __all__ = ["load_data", "inference",
            "single_worker_inference", "multi_worker_inference"]
 
+daemon_sess = None
+loaded_infer_model = None
+daemon_hparams = None
+infer_model = None
+daemon_lru = collections.OrderedDict()
 
 def _decode_inference_indices(model, sess, output_infer,
                               output_infer_summary_prefix,
@@ -78,6 +84,73 @@ def load_data(inference_input_file, hparams=None):
     inference_data = [inference_data[i] for i in hparams.inference_indices]
 
   return inference_data
+
+
+def daemon_setup(ckpt,hparams,scope,log_file):
+    if not hparams.attention:
+        model_creator = nmt_model.Model
+    elif hparams.attention_architecture == "standard":
+        model_creator = attention_model.AttentionModel
+    elif hparams.attention_architecture in ["gnmt", "gnmt_v2"]:
+        model_creator = gnmt_model.GNMTModel
+    else:
+        raise ValueError("Unknown model architecture")
+
+    global daemon_sess
+    global infer_model
+    global loaded_infer_model
+    global daemon_hparams
+    infer_model = model_helper.create_infer_model(model_creator, hparams, scope)
+
+    daemon_sess = tf.Session(
+            graph=infer_model.graph, config=utils.get_config_proto())
+
+    with infer_model.graph.as_default():
+        loaded_infer_model = model_helper.load_model(
+            infer_model.model, ckpt, daemon_sess, "infer")
+    daemon_hparams = hparams
+
+def daemon_inference(sent):
+
+    global daemon_sess
+    global loaded_infer_model
+    global daemon_hparams
+    global infer_model
+    global daemon_lru
+    hparams = daemon_hparams
+    infer_data = [sent]
+    print(loaded_infer_model)
+    with infer_model.graph.as_default():
+        daemon_sess.run(infer_model.iterator.initializer,
+                        feed_dict={
+                            infer_model.src_placeholder: infer_data,
+                            infer_model.batch_size_placeholder: 1
+                        })
+        translations= nmt_utils.decode_and_evaluate_daemon( "infer",
+          loaded_infer_model,
+          daemon_sess,
+          metrics=hparams.metrics,
+          subword_option=hparams.subword_option,
+          beam_width=hparams.beam_width,
+          tgt_eos=hparams.eos,
+          num_translations_per_input=hparams.num_translations_per_input)
+        if(len(daemon_lru)>100):
+            keys = list(daemon_lru.keys())
+            key_to_evict = keys[-1]
+            daemon_lru.pop(key_to_evict)
+        for translation in translations:
+            if translation in daemon_lru:
+                if daemon_lru[translation]<4:
+                    value = daemon_lru.pop(translation)
+                    daemon_lru[translation] =value+1
+                    return translation
+                else:
+                    continue
+            else:
+                daemon_lru[translation] = 1
+                return translation
+
+    # with infer_model.graph.as_default():
 
 
 def inference(ckpt,

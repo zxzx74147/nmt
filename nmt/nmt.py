@@ -540,6 +540,38 @@ def create_or_load_hparams(
   utils.print_hparams(hparams)
   return hparams
 
+def run_interface(default_hparams):
+    print(default_hparams)
+    nmt_parser = argparse.ArgumentParser()
+    add_arguments(nmt_parser)
+    flags, unparsed = nmt_parser.parse_known_args(default_hparams)
+    default_hparams = create_hparams(flags)
+
+    ## Train / Decode
+    out_dir = flags.out_dir
+    jobid = flags.jobid
+    if not tf.gfile.Exists(out_dir): tf.gfile.MakeDirs(out_dir)
+    print("out_dir"+out_dir)
+
+    hparams = create_or_load_hparams(
+        out_dir, default_hparams, flags.hparams_path, save_hparams=False)
+
+    # Random
+    random_seed = flags.random_seed
+    if random_seed is not None and random_seed > 0:
+        utils.print_out("# Set random seed to %d" % random_seed)
+        random.seed(random_seed + jobid)
+        np.random.seed(random_seed + jobid)
+
+    # Load hparams.
+
+
+    ckpt = flags.ckpt
+    if not ckpt:
+        ckpt = tf.train.latest_checkpoint(out_dir)
+    print("ckpt" + ckpt)
+    inference.daemon_setup(ckpt,hparams,scope="",log_file="./log.txt")
+
 
 def run_main(flags, default_hparams, train_fn, inference_fn, target_session=""):
   """Run main."""
