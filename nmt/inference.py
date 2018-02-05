@@ -151,7 +151,7 @@ def daemon_inference(sent):
                     print("remove key" + key_to_evict)
                 daemon_lru[translation] = 1
                 return translation
-        # print("fail:" + "|".join(translations))
+        print("fail:" + "|".join(translations))
 
     # with infer_model.graph.as_default():
 
