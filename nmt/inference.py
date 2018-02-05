@@ -31,7 +31,8 @@ import collections
 
 __all__ = ["load_data", "inference",
            "single_worker_inference", "multi_worker_inference"]
-
+import logging
+logger = logging.getLogger(__name__)
 daemon_sess = None
 loaded_infer_model = None
 daemon_hparams = None
@@ -134,7 +135,7 @@ def daemon_inference(sent):
           tgt_eos=hparams.eos,
           num_translations_per_input=hparams.num_translations_per_input)
 
-        print("|".join(translations))
+        logger.info("|".join(translations))
         for translation in translations:
             if translation in daemon_lru:
                 if daemon_lru[translation]<4:
