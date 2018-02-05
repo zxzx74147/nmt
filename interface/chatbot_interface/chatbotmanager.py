@@ -8,6 +8,7 @@ import os
 import jieba
 
 
+
 chatbotPath = "/".join(settings.BASE_DIR.split('/')[:-1])
 sys.path.append(chatbotPath)
 # from chatbot import chatbotstream

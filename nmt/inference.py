@@ -136,7 +136,7 @@ def daemon_inference(sent):
           num_translations_per_input=hparams.num_translations_per_input)
         if(len(daemon_lru)>100):
             keys = list(daemon_lru.keys())
-            key_to_evict = keys[-1]
+            key_to_evict = keys[0]
             daemon_lru.pop(key_to_evict)
         for translation in translations:
             if translation in daemon_lru:
