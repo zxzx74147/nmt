@@ -65,6 +65,8 @@ class ChatbotManager(AppConfig):
         Return:
             str: the answer
         """
+        if(len(sentence.strip())<1):
+            return ""
         if inference.daemon_sess:
             sentence = ' '.join(jieba.cut(sentence))
             return inference.daemon_inference(sentence)
