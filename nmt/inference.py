@@ -139,7 +139,7 @@ def daemon_inference(sent):
         print("|".join(translations))
         for translation in translations:
             if translation in daemon_lru:
-                if daemon_lru[translation]<2:
+                if daemon_lru[translation]<4:
                     value = daemon_lru.pop(translation)
                     daemon_lru[translation] =value+1
                     return translation
